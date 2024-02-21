@@ -16,9 +16,21 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login_page.php">Login</a>
-              </li>
+            <?php
+            session_start();
+              if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                echo '<li class="nav-item">';
+                echo  '<a class="nav-link active" aria-current="page" href="logout.php">Log out</a>';
+                echo '</li>';
+                echo '<li class="nav-item">';
+                echo '<a class="nav-link" href="data.php">Data</a>';
+                echo ' </li>';
+              }else{
+                echo '<li class="nav-item">';
+                echo  '<a class="nav-link active" aria-current="page" href="login_page.php">Login</a>';
+                echo '</li>';
+              }
+              ?>
             </ul>
           </div>
         </div>
