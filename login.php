@@ -1,4 +1,6 @@
 <?php
+require_once "./classes/User.php"
+require_once "./classes/DBC.php"
 session_start();
 if(empty($_POST["username"]) || empty($_POST["password"])){
     header('Location: index.php');
