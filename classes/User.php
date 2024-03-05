@@ -2,49 +2,25 @@
 
 class User
 {
-    public $id;
-    protected $password;
-    protected $username;
+    public int $id;
+    public string $username;
+    public string $password;
 
-    public _construct(int $id,int $password,int $username)
-    {
+    public function __construct(int $id, string $username, string $password){
         $this->id = $id;
-        $this->password = $password;
         $this->username = $username;
+        $this->password = $password;
     }
 
-    public function setId(int $id): void
-    {
+    public function setId(int $id): void{
         $this->id = $id;
     }
 
-    public function getId(): int
-    {
-        return $this->$id;
+    public function getId(): int{
+        return $this->id;
     }
 
-    public static function bark()
-    {
-        echo "BARK!"
-    }
-
-    public function setPassword(string $password):void
-    {
-        $this->password = $password
-    }
-
-    public function getPasword(): string
-    {
-        return $this->$password;
-    }
-
-    public function setUsername(string $username):void
-    {
-        $this->username = $username
-    }
-
-    public function getUsername():string 
-    {
-        return $this->$username;
+    public function __toString(): string{
+        return $this->username .":". $this->password;
     }
 }

@@ -4,8 +4,8 @@ class DBC
 {
     public const SERVER_IP = "localhost";
     public const USER = "root";
-    public const PASSWORD = "student";
-    public const DATABASE = "LoginTest";
+    public const PASSWORD = "";
+    public const DATABASE = "uzivatel";
 
     private static $connection = null;
 
