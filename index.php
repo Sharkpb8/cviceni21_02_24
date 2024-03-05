@@ -29,6 +29,9 @@
                 echo '<li class="nav-item">';
                 echo  '<a class="nav-link active" aria-current="page" href="login_page.php">Login</a>';
                 echo '</li>';
+                echo '<li class="nav-item">';
+                echo  '<a class="nav-link active" aria-current="page" href="#">register</a>';
+                echo '</li>';
               }
               ?>
             </ul>

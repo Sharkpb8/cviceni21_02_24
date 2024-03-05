@@ -2,12 +2,16 @@
 
 class DBC
 {
-    const SERVER_IP = "localhost";
-    const USER = "root";
-    const PASSWORD = "student";
-    const DATABASE = "LoginTest";
+    public const SERVER_IP = "localhost";
+    public const USER = "root";
+    public const PASSWORD = "student";
+    public const DATABASE = "LoginTest";
 
     private static $connection = null;
+
+    protected function __construct()
+    {
+    }
 
     public static function getConnection()
     {
@@ -24,11 +28,12 @@ class DBC
         }
         return self::$connection;
     }
-    
+
     public static function closeConnection()
     {
         if (self::$connection) {
             mysqli_close(self::$connection);
+            self::$connection = null;
         }
     }
 }
