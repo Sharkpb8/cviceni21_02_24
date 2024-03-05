@@ -2,10 +2,10 @@
 
 class DBC
 {
-    public const SERVER_IP = "localhost";
-    public const USER = "root";
-    public const PASSWORD = "";
-    public const DATABASE = "uzivatel";
+    public static $SERVER_IP = "localhost";
+    public static $USER = "root";
+    public static $PASSWORD = "";
+    public static $DATABASE = "login";
 
     private static $connection = null;
 
@@ -17,10 +17,10 @@ class DBC
     {
         if (!self::$connection) {
             self::$connection = mysqli_connect(
-                self::SERVER_IP,
-                self::USER,
-                self::PASSWORD,
-                self::DATABASE
+                self::$SERVER_IP,
+                self::$USER,
+                self::$PASSWORD,
+                self::$DATABASE
             );
             if (!self::$connection) {
                 die('Could not connect to DB');
