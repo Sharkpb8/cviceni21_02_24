@@ -20,22 +20,20 @@
                 <a class="nav-link active" aria-current="page" href="logout.php">Log out</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Data</a>
+              <a class="nav-link active" aria-current="page" href="data.php">Data</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="threads_page.php">Threads</a>
+              <a class="nav-link" href="#">Threads</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <?php
-      session_start();
-      if(empty($_SESSION["username"])){
-          echo "you are not logged";
-      }else{
-          echo "you are looged as ". $_SESSION["username"];
-      }
-      ?>
+      
+    <form action="threads.php" method="post">
+      <textarea name="content" rows="3" cols="50"></textarea><br>
+      <input type="submit" value="Přidat příspěvek">
+    </form>
+
 </body>
 </html>

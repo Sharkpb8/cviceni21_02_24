@@ -25,6 +25,9 @@
                 echo '<li class="nav-item">';
                 echo '<a class="nav-link" href="data.php">Data</a>';
                 echo ' </li>';
+                echo '<li class="nav-item">';
+                echo '<a class="nav-link" href="threads_page.php">Threads</a>';
+                echo ' </li>';
               }else{
                 echo '<li class="nav-item">';
                 echo  '<a class="nav-link active" aria-current="page" href="login_page.php">Login</a>';
