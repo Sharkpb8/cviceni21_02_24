@@ -9,21 +9,6 @@ if(empty($_POST["username"]) || empty($_POST["password"])){
 
 verifyUser($_POST["username"], $_POST["password"]);
 
-/* $hash = password_hash($_POST["password"],PASSWORD_DEFAULT);
-$query = DBC::getConnection()->query("select username, password from uzivatel where username = '" . $_POST["username"] . "' and password = '" . $hash . "';");
-
-$match = false;
-while($row = $query->fetch_assoc()) {
-    if (password_verify($hash, $row["password"])) {
-        echo "Password matches!";
-        $match = true;
-        break;
-    }
-}
-if(!$match){
-    die();
-} */
-
 function verifyUser(string $username, string $password): void
 {
     $connection = DBC::getConnection();
