@@ -7,8 +7,8 @@ if(empty($_POST["username"]) || empty($_POST["password"])){
     exit();
 }
 
-
-$query = DBC::getConnection()->query("insert into uzivatel (username, password) values ('" . $_POST["username"] . "', '" . $_POST["password"] . "');");
+$hash = password_hash($_POST["password"],PASSWORD_DEFAULT);
+$query = DBC::getConnection()->query("insert into uzivatel (username, password) values ('" . $_POST["username"] . "', '" . $hash . "');");
 
 $username = $_POST["username"];
 $_SESSION['username'] = $username;

@@ -13,17 +13,17 @@ class DBC
     {
     }
 
-    public static function getConnection()
+    public static function getConnection(): ?PDO
     {
         if (!self::$connection) {
-            self::$connection = mysqli_connect(
-                self::$SERVER_IP,
-                self::$USER,
-                self::$PASSWORD,
-                self::$DATABASE
-            );
-            if (!self::$connection) {
-                die('Could not connect to DB');
+            try {
+                self::$connection = new PDO(
+                    'mysql:host=' . self::$SERVER_IP . ';dbname=' . self::$DATABASE,
+                    self::$USER,
+                    self::$PASSWORD
+                );
+            } catch (PDOException $e) {
+                throw new PDOException($e->getMessage(), $e->getCode());
             }
         }
         return self::$connection;
