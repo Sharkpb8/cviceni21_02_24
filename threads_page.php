@@ -40,7 +40,7 @@
 require_once "./classes/DBC.php";
 
 // Dotaz pro získání všech příspěvků
-$query = DBC::getConnection()->query("SELECT * FROM threads");
+$query = DBC::getConnection()->query("SELECT * FROM threads ORDER BY id DESC");
 $threads = $query->fetchAll();
 
 // Vypsání příspěvků
@@ -48,12 +48,10 @@ foreach ($threads as $post) {
     echo '<div>';
     echo '<p>' . $post['text'] . '</p>';
     echo '<p>Author: ' . $post['post_username'] . '</p>';
-    /* if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['user_id']) {
-        echo '<form action="delete_post.php" method="post">';
+        echo '<form action="threads_delete.php" method="post">';
         echo '<input type="hidden" name="post_id" value="' . $post['id'] . '">';
         echo '<input type="submit" value="Delete">';
         echo '</form>';
-    } */
     echo '</div>';
     echo '<br>';
 }
