@@ -31,9 +31,33 @@
       </nav>
       
     <form action="threads.php" method="post">
-      <textarea name="content" rows="3" cols="50"></textarea><br>
+      <textarea name="text" rows="3" cols="50"></textarea><br>
       <input type="submit" value="Přidat příspěvek">
     </form>
+    <br>
+    <br>
+<?php
+require_once "./classes/DBC.php";
+
+// Dotaz pro získání všech příspěvků
+$query = DBC::getConnection()->query("SELECT * FROM threads");
+$threads = $query->fetchAll();
+
+// Vypsání příspěvků
+foreach ($threads as $post) {
+    echo '<div>';
+    echo '<p>' . $post['text'] . '</p>';
+    echo '<p>Author: ' . $post['post_username'] . '</p>';
+    /* if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['user_id']) {
+        echo '<form action="delete_post.php" method="post">';
+        echo '<input type="hidden" name="post_id" value="' . $post['id'] . '">';
+        echo '<input type="submit" value="Delete">';
+        echo '</form>';
+    } */
+    echo '</div>';
+    echo '<br>';
+}
+?>
 
 </body>
 </html>
